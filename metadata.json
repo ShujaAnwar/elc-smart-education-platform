@@ -1,0 +1,8 @@
+{
+  "name": "The Excellent Language Center (ELC)",
+  "description": "A premium, futuristic educational platform for English language and computer training, featuring a modern UI, AI-powered chatbot, and a full-featured admin dashboard.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
