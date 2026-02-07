@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Target, Eye, Users, Award, ShieldCheck, Heart } from 'lucide-react';
-import { dataService } from '../services/dataService';
-import { SiteSettings } from '../types';
+import { dataService } from '../services/dataService.ts';
+import { SiteSettings } from '../types.ts';
 
 const About: React.FC = () => {
   const [settings, setSettings] = useState<SiteSettings | null>(null);

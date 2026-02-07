@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Globe, ShieldCheck, Zap, Monitor, MessageCircle, Quote, User } from 'lucide-react';
-import { dataService } from '../services/dataService';
-import { SiteSettings, Testimonial } from '../types';
+import { dataService } from '../services/dataService.ts';
+import { SiteSettings, Testimonial } from '../types.ts';
 
 const AnimatedCounter: React.FC<{ target: number; duration?: number; suffix?: string }> = ({ target, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);

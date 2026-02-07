@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, Clock, GraduationCap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { dataService } from '../services/dataService';
-import { Course } from '../types';
+import { dataService } from '../services/dataService.ts';
+import { Course } from '../types.ts';
 
 const Courses: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);
