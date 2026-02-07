@@ -1,19 +1,18 @@
 
 import React from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Courses from './pages/Courses';
-import Registration from './pages/Registration';
-import Contact from './pages/Contact';
-import Admin from './pages/Admin';
-import Gallery from './pages/Gallery';
-import Chatbot from './components/Chatbot';
-import WhatsAppButton from './components/WhatsAppButton';
+import Navbar from './components/Navbar.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import About from './pages/About.tsx';
+import Courses from './pages/Courses.tsx';
+import Registration from './pages/Registration.tsx';
+import Contact from './pages/Contact.tsx';
+import Admin from './pages/Admin.tsx';
+import Gallery from './pages/Gallery.tsx';
+import Chatbot from './components/Chatbot.tsx';
+import WhatsAppButton from './components/WhatsAppButton.tsx';
 
-// ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   React.useEffect(() => {
@@ -52,7 +51,6 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/admin" element={<Admin />} />
-          {/* Support for potential sub-admin routes */}
           <Route path="/admin/*" element={<Admin />} />
         </Routes>
       </Layout>
