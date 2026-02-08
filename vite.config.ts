@@ -4,9 +4,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   define: {
-    // This ensures process.env is available in the browser for the Gemini SDK.
-    // Use process.env directly from the Node environment during build time to fix the TS error.
-    'process.env': process.env
+    // This allows the browser to access process.env.API_KEY
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   },
   build: {
     outDir: 'dist',

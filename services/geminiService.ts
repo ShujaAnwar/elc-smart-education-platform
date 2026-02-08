@@ -2,17 +2,18 @@ import { GoogleGenAI } from "@google/genai";
 
 // Standard helper to get AI response following @google/genai guidelines
 export const getAiResponse = async (userMessage: string) => {
-  // Use process.env.API_KEY directly as a hard requirement. 
-  // Cast to any to bypass TSC environment mismatch during build time.
+  // Use process.env.API_KEY directly as a hard requirement.
+  // Cast to any to prevent TS build errors while ensuring availability at runtime.
   const apiKey = (process as any).env.API_KEY;
 
   if (!apiKey) {
+    console.warn("ELC: Gemini API Key is missing in environment variables.");
     return "AI Chat is currently unavailable. Please contact us via phone or WhatsApp.";
   }
 
   try {
-    // Initialize GoogleGenAI with named apiKey parameter using process.env.API_KEY directly
-    const ai = new GoogleGenAI({ apiKey: (process as any).env.API_KEY });
+    // Initialize GoogleGenAI with named apiKey parameter
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userMessage,
@@ -29,7 +30,7 @@ export const getAiResponse = async (userMessage: string) => {
     // Use .text property directly (do not call as a function)
     return response.text || "I'm sorry, I couldn't process that. Can you try again?";
   } catch (error) {
-    console.error("AI Error:", error);
+    console.error("ELC AI Error:", error);
     return "Something went wrong. Please try again later or call us directly.";
   }
 };
