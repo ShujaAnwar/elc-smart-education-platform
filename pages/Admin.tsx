@@ -1,17 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Users, BookOpen, MessageSquare, TrendingUp, Settings, 
-  Trash2, Edit, Plus, Check, X, Download, Filter, 
-  LayoutDashboard, LogOut, Search, Image as ImageIcon, 
-  Globe, Palette, Save, Eye, EyeOff, ShieldCheck,
-  Smartphone, Mail, MapPin, Share2, Clock, MessageCircle
+  Trash2, Edit, Plus, Check, Save, Eye, EyeOff, ShieldCheck,
+  Smartphone, LayoutDashboard, LogOut, Clock, MessageCircle, Globe, Palette
 } from 'lucide-react';
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
   AreaChart, Area
 } from 'recharts';
-import { Course, Registration, Testimonial, SiteSettings, CourseLevel, CourseMode } from '../types';
+import { Course, Registration, Testimonial, SiteSettings } from '../types';
 import { dataService } from '../services/dataService';
 
 const Admin: React.FC = () => {
@@ -147,7 +144,7 @@ const Admin: React.FC = () => {
         <h3 className="text-2xl font-black text-gray-900">Enrollments</h3>
         <div className="flex gap-4">
            <input type="text" placeholder="Search students..." className="px-4 py-2 bg-gray-50 rounded-xl text-sm outline-none" />
-           <button className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-bold flex items-center gap-2"><Download size={16} /> Export</button>
+           <button className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-bold flex items-center gap-2">Export</button>
         </div>
       </div>
       <div className="overflow-x-auto">
@@ -469,7 +466,7 @@ const Admin: React.FC = () => {
           </div>
 
           <div className="bg-white p-10 rounded-[3rem] border border-gray-100 space-y-6">
-             <h4 className="font-bold text-lg flex items-center gap-2"><Share2 size={18}/> Social Links</h4>
+             <h4 className="font-bold text-lg flex items-center gap-2">Social Links</h4>
              <div className="space-y-4">
                 <div className="space-y-2">
                    <label className="text-xs font-bold text-gray-400 uppercase">Facebook</label>

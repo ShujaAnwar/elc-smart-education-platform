@@ -1,16 +1,18 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 // Standard helper to get AI response following @google/genai guidelines
 export const getAiResponse = async (userMessage: string) => {
-  // Use process.env.API_KEY directly as a hard requirement
-  if (!process.env.API_KEY) {
+  // Use process.env.API_KEY directly as a hard requirement. 
+  // Cast to any to bypass TSC environment mismatch during build time.
+  const apiKey = (process as any).env.API_KEY;
+
+  if (!apiKey) {
     return "AI Chat is currently unavailable. Please contact us via phone or WhatsApp.";
   }
 
   try {
     // Initialize GoogleGenAI with named apiKey parameter using process.env.API_KEY directly
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: (process as any).env.API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userMessage,
